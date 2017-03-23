@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../src/js/angular.js"></script>
+		<style type="text/css">
+			input.ng-invalid{
+				background-color:lightblue;
+			}
+			input.ng-dirty{
+				color:red;
+			}
+			input.ng-touched{
+				border-color:yellow;
+			}
+		</style>
+	</head>
+	<body ng-app="myApp" ng-controller="myCtrl">
+		<h4>ng-model指令用于绑定应用程序数据到HTML控制器（input，select，text area）的值。</h4>
+		<p>ng-model指令可以将输入域的值与AngularJS创建的变量绑定。</p>
+		<div>名字：<input type="text" ng-model="name"/></div>
+		<b	>双向数据绑定：</b>
+		<div>输入的名字:{{name}}</div>
+		<b>验证用户输入</b>
+		<form action="#" name="myForm">
+			Email: <input type="email" name="myAddress" ng-model="text"/>
+			<span ng-show="myForm.myAddress.$error.email">不是一个合法的邮箱地址</span>
+		</form>
+		<b>应用状态：ng-model指令可以为应用数据提供状态值（invalid, dirty, touched, error）</b>
+		<form action="#" name="form2" ng-init="myText='test@runoob.com'">
+			Email: <input type="email" name="address" ng-model="text" required/>
+			<h1>状态</h1>
+			{{form2.address.$valid}}
+			{{form2.address.$dirty}}
+			{{form2.address.$touched}}
+		</form>
+	</body>
+	<script type="text/javascript">
+		var app = angular.module('myApp',[]);
+		app.controller('myCtrl',function($scope){
+			$scope.name = "John Doe";
+		});
+	</script>
+	
+</html>

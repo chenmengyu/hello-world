@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>AngularJS表达式</title>
+		<script src="../src/js/angular.js"></script>
+	</head>
+	<body>
+		<div ng-app="">
+			<ol>
+				<li ng-init="quantity=1;const=5">
+					AngularJS数字
+					<p>{{5+5}}</p>
+					<p>总价：{{quantity * const}}</p>
+					<p>总价：<spqn ng-bind="quantity * const"></spqn></p>
+				</li>
+				<li ng-init="firstName='John';lastName='Doe'">
+					AngularJS字符串
+					<p>姓名：{{firstName + " " + lastName}}</p>
+					<p>姓名：<span ng-bind="firstName + ' ' + lastName"></span></p>
+					<p></p>
+				</li>
+				<li ng-init="person={firstName:'John',lastName:'Doe'}">
+					AngularJS对象
+					<p>姓为{{person.lastName}}</p>
+					<p>姓为 <span ng-bind="person.lastName"></span></p>
+				</li>
+				<li ng-init="points=[1,15,19,2,40]">
+					AngularJS数组
+					<p>第三个值为{{points[2]}}</p>
+					<p>第三个值为 <span ng-bind="points[2]"></span></p>
+				</li>
+			</ol>
+		</div>
+	</body>
+</html>

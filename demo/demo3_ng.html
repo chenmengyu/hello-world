@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>指令</title>
+		<script src="../src/js/angular.js"></script>
+	</head>
+	<body ng-app="myApp">
+		<h3>AngularJS指令</h3>
+		<p>AngularJS指令是扩展的HTML属性，带有前缀ng-</p>
+		<ul>
+			<li><b>ng-app</b>指令初始化一个AngularJS应用程序</li>
+			<li><b>ng-init</b>指令初始化应用程序数据</li>
+			<li><b>ng-model</b>指令吧元素值绑定到应用程序</li>
+			<li ng-init="names=['Jani','Hege','Kai']">
+				<b>ng-repeat</b>指令会重复一个HTML元素
+				<ul>
+					<li ng-repeat="x in names">{{x}}</li>
+				</ul>
+			</li>
+			<li>
+				创建自定义的指令
+				使用<b>.directive</b>函数来添加自定义指令：
+			<h4>自定义指令可以通过以下方式调用：元素名、属性、类名、注释</h4>
+				元素名
+				<runoob-directive></runoob-directive>
+				属性
+				<div runoob-directive></div>
+				类名
+				<div class="runoob-directive"></div>
+				注释
+				<!-- directive: runoob-directive -->
+			</li>
+		</ul>
+	</body>
+	<script>
+		var app = angular.module('myApp',[]);
+		app.directive("runoobDirective",function(){
+			return {
+				restrict:"EACM"
+				template:"<h1>之定义指令！</h1>"
+			}
+		})
+	</script>
+</html>
